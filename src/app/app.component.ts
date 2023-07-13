@@ -70,6 +70,8 @@ export class AppComponent implements OnInit {
         subject,
         message,
       });
+
+      this.form.reset();
     }
   }
 }
