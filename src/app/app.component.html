@@ -1,1 +1,137 @@
-<contact-blog-nx-welcome></contact-blog-nx-welcome>
+<form [formGroup]="form" class="grid grid-cols-2 gap-2">
+  <div class="flex flex-col col-span-full md:col-span-1">
+    <label for="concern" class="font-semibold"
+      >Concern <span class="text-red-500">*</span></label
+    >
+    <p-dropdown
+      [options]="concerns"
+      inputId="concern"
+      [style]="{ width: '100%' }"
+      formControlName="concern"
+      placeholder="Select a concern"
+    />
+    <p
+      class="text-red-500 text-sm"
+      *ngIf="form.controls.concern.invalid && form.controls.concern.touched"
+    >
+      Concern is required
+    </p>
+  </div>
+
+  <div class="flex flex-col col-span-full md:col-span-1">
+    <label for="name" class="font-semibold"
+      >Name <span class="text-red-500">*</span></label
+    >
+    <input
+      pInputText
+      id="name"
+      type="text"
+      formControlName="name"
+      placeholder="Your name"
+    />
+    <p
+      class="text-red-500 text-sm"
+      *ngIf="form.controls.name.invalid && form.controls.name.touched"
+    >
+      Name is required
+    </p>
+  </div>
+
+  <div class="flex flex-col col-span-full">
+    <label for="email" class="font-semibold"
+      >E-Mail <span class="text-red-500">*</span></label
+    >
+    <input
+      pInputText
+      id="email"
+      type="text"
+      formControlName="email"
+      placeholder="Your email"
+    />
+    <p
+      class="text-red-500 text-sm"
+      *ngIf="form.controls.email.errors?.['required'] && form.controls.email.touched"
+    >
+      Email is required
+    </p>
+    <p
+      class="text-red-500 text-sm"
+      *ngIf="form.controls.email.errors?.['email'] && form.controls.email.touched"
+    >
+      Email is invalid
+    </p>
+  </div>
+
+  <div class="flex flex-col col-span-full">
+    <label for="company" class="font-semibold">Company</label>
+    <input
+      pInputText
+      id="company"
+      type="text"
+      formControlName="company"
+      placeholder="Your company"
+    />
+  </div>
+
+  <div class="flex flex-col col-span-full">
+    <label for="subject" class="font-semibold"
+      >Subject <span class="text-red-500">*</span></label
+    >
+    <input
+      pInputText
+      id="subject"
+      type="text"
+      formControlName="subject"
+      placeholder="Subject"
+    />
+    <p
+      class="text-red-500 text-sm"
+      *ngIf="form.controls.subject.invalid && form.controls.subject.touched"
+    >
+        Subject is required
+    </p>
+  </div>
+
+  <div class="flex flex-col col-span-full">
+    <label for="message" class="font-semibold"
+      >Message <span class="text-red-500">*</span></label
+    >
+    <textarea
+      [rows]="5"
+      id="message"
+      pInputTextarea
+      formControlName="message"
+      placeholder="Your message"
+    ></textarea>
+    <p
+      class="text-red-500 text-sm"
+      *ngIf="form.controls.message.errors?.['required'] && form.controls.message.touched"
+    >
+        Message is required
+    </p>
+    <p
+        class="text-red-500 text-sm"
+        *ngIf="form.controls.message.errors?.['minlength'] && form.controls.message.touched"
+    >
+        Message must be at least 30 characters long
+    </p>
+  </div>
+
+  <ng-container *ngIf="form.valid; else disabledButton">
+    <button
+    (click)="submit()"
+      class="col-span-full mt-4 text-white bg-gradient-to-br shadow-xl hover:shadow-2xl from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 font-medium rounded-lg text-xl px-5 py-2.5 text-center"
+    >
+      Submit
+    </button>
+  </ng-container>
+
+  <ng-template #disabledButton>
+    <button
+      disabled
+      class="col-span-full mt-4 text-white bg-gradient-to-br shadow-xl from-pink-500 to-orange-400 focus:ring-4 focus:outline-none focus:ring-pink-200 opacity-50 font-medium rounded-lg text-xl px-5 py-2.5 text-center"
+    >
+      Submit
+    </button>
+  </ng-template>
+</form>
