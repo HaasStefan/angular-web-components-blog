@@ -1,14 +1,14 @@
 <form [formGroup]="form" class="grid grid-cols-2 gap-2">
   <div class="flex flex-col col-span-full md:col-span-1">
     <label for="concern" class="font-semibold"
-      >Concern <span class="text-red-500">*</span></label
+      >Topic <span class="text-red-500">*</span></label
     >
     <p-dropdown
       [options]="concerns"
       inputId="concern"
       [style]="{ width: '100%' }"
       formControlName="concern"
-      placeholder="Select a concern"
+      placeholder="Select a topic"
     />
     <p
       class="text-red-500 text-sm"
@@ -120,7 +120,7 @@
   <ng-container *ngIf="form.valid; else disabledButton">
     <button
     (click)="submit()"
-      class="col-span-full mt-4 text-white bg-gradient-to-br shadow-xl hover:shadow-2xl from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 font-medium rounded-lg text-xl px-5 py-2.5 text-center"
+    class="col-span-full mt-4 text-white bg-gradient-to-br shadow-xl hover:shadow-2xl bg-red-500 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-xl px-5 py-2.5 text-center mb-2"
     >
       Submit
     </button>
@@ -129,8 +129,8 @@
   <ng-template #disabledButton>
     <button
       disabled
-      class="col-span-full mt-4 text-white bg-gradient-to-br shadow-xl from-pink-500 to-orange-400 focus:ring-4 focus:outline-none focus:ring-pink-200 opacity-50 font-medium rounded-lg text-xl px-5 py-2.5 text-center"
-    >
+      class="col-span-full mt-4 opacity-50 text-white bg-gradient-to-br shadow-xl hover:shadow-2xl bg-red-500 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-xl px-5 py-2.5 text-center mb-2"
+      >
       Submit
     </button>
   </ng-template>
