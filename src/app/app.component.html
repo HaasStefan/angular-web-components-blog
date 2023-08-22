@@ -4,7 +4,7 @@
       >Topic <span class="text-red-500">*</span></label
     >
     <p-dropdown
-      [options]="concerns"
+      [options]="topics"
       inputId="concern"
       [style]="{ width: '100%' }"
       formControlName="concern"
@@ -14,7 +14,7 @@
       class="text-red-500 text-sm"
       *ngIf="form.controls.concern.invalid && form.controls.concern.touched"
     >
-      Concern is required
+      Topic is required
     </p>
   </div>
 

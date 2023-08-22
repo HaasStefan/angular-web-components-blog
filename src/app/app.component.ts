@@ -37,11 +37,10 @@ export class AppComponent implements OnInit {
   readonly #cdr = inject(ChangeDetectorRef);
   readonly #fb = inject(FormBuilder);
   @Output() submitForm = new EventEmitter<Payload>();
-  readonly concerns = [
-    'General',
+  readonly topics = [
     'Workshop',
     'Freelancing',
-    'Code Review',
+    'Architecture Audit',
     'Other',
   ];
 
